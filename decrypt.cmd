@@ -1,13 +1,19 @@
 @ECHO OFF
-set filepath=%cd%\senarioes\data\
+set en_suffix=_encrypt
 
-For /f "tokens=1* delims=:" %%i in ('Type encryptinfo.txt^|Findstr /n ".*"') do (
-If "%%i"=="1" set key=%%j
-If "%%i"=="2" set iv=%%j
-If "%%i"=="3" set alt=%%j
-If "%%i"=="4" set encryptTool=%%j
+For /f "eol=# tokens=1* delims=:" %%i in (encryptinfo.txt) do (
+If "%%i"=="key" set key=%%j
+If "%%i"=="iv" set iv=%%j
+If "%%i"=="method" set alt=%%j
+If "%%i"=="encrypttool" set encryptTool=%%j
 )
 
-
-ECHO %encryptTool% -1 -de -f "%filepath%sensitiveData_Encrypt.js" -t %alt% -key %key% -iv %iv% -o "%filepath%sensitiveData.js"
-%encryptTool% -1 -de -f "%filepath%sensitiveData_Encrypt.js" -t %alt% -key %key% -iv %iv% -o "%filepath%sensitiveData.js"
+setlocal EnableDelayedExpansion
+For /f "eol=#" %%i in (encryptlist.txt) do (
+set file=%cd%\%%i%en_suffix%
+if exist "!file!" (
+	ECHO decrypt "!file!"
+    %encryptTool% -1 -de -f "!file!" -t %alt% -key !key! -iv !iv! -o "%%i"
+	)
+)
+setlocal DisableDelayedExpansion
