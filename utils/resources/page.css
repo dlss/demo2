@@ -1,0 +1,128 @@
+body {
+    font-family: Arial
+}
+
+table {
+    /*width: 95%;*/
+    text-align: left;
+    border-spacing: 0;
+    margin-bottom: 5px;
+    border-collapse: collapse;
+}
+
+table.header {
+    background-color: gray;
+    color: #fff;
+    margin-left: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+.category {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.category-header {
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.desc-col {
+    width: 390px;
+    min-width: 390px;
+    max-width: 390px;
+}
+
+.status-col {
+    width: 75px;
+    min-width: 75px;
+    max-width: 75px;
+}
+
+.browser-col {
+    width: 160px;
+    min-width: 160px;
+    max-width: 160px;
+}
+
+.os-col {
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+}
+
+.msg-col {
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+    word-break: break-all;
+}
+
+.img-col {
+    width: 90px;
+    min-width: 90px;
+    max-width: 90px;
+}
+
+.url-col {
+    width: 500px;
+    min-width: 500px;
+    max-width: 500px;
+    word-break: break-all;
+}
+
+.traceinfo {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    overflow: auto;
+}
+
+.traceinfo.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.traceinfo > div {
+    position: relative;
+    margin: 10% 100px;
+    padding: 5px 20px 13px 20px;
+    background: #fff;
+}
+
+.traceinfo .close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.traceinfo .close:hover {
+    background: #00d9ff;
+}
+
+pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}

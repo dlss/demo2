@@ -1,0 +1,13 @@
+node_modules/
+
+.idea
+npm-debug.log
+
+# logs
+result/
+logs/
+
+# My
+senarioes/specs/work_*.js
+senarioes/data/sensitiveData.js
+encryptinfo.txt
