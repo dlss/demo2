@@ -9,11 +9,30 @@ If "%%i"=="encrypttool" set encryptTool=%%j
 )
 
 setlocal EnableDelayedExpansion
-For /f "eol=#" %%i in (encryptlist.txt) do (
-set file=%cd%\%%i
-if exist "!file!" (
-	ECHO encrypt "!file!"
-	%encryptTool% -1 -en -f "!file!" -t %alt% -key !key! -iv !iv! -o "!file!%en_suffix%"
-	)
+for /f "eol=#" %%i in (encryptlist.txt) do (
+	set path=%cd%\%%i
+	SET FileAttrib=%%~ai 
+	if exist "!path!" (
+		if "!FileAttrib:~0,1!"=="d" (
+			call:folder "!path!"
+		) else (
+			if exist "!path!" (
+				echo encrypt "!path!"
+			    %encryptTool% -1 -en -f "!path!" -t %alt% -key !key! -iv !iv! -o "!path!%en_suffix%" -ver 0
+			) else echo Not exist "!path!" 
+		)
+	) else echo Not exist "!path!" 
 )
+goto :eof
+
+:folder
+for /R %1 %%a in (*) do (
+	set file=%%a
+	if "!file:%en_suffix%=!"=="!file!" (
+		echo encrypt "%%a"
+		%encryptTool% -1 -en -f "%%a" -t %alt% -key !key! -iv !iv! -o "%%a%en_suffix%" -ver 0
+	) else echo skip to encrypt "%%a"
+)
+
+:eof
 setlocal DisableDelayedExpansion
