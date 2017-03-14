@@ -33,10 +33,11 @@
         return "[" + new Date().toLocaleString() + "]";
     };
 
+    // logs/2017-03-09
     var getDefaultLogFolder = function () {
         return (rootFolder + "/" + formatDate(new Date(), "yyyy-MM-dd"));
     };
-
+    // 12.log
     var getDefaultLogFileName = function () {
         return formatDate(new Date(), "hh") + defaultLogFileExt;
     };

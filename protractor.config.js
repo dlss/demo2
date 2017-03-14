@@ -42,6 +42,7 @@
             demo: 'senarioes/specs/demo.js',
             pactera: 'senarioes/specs/pactera.js',
             work: 'senarioes/specs/work_ops.js',
+            crawler: 'senarioes/specs/crawler.js',
         },
 
         exclude: [
