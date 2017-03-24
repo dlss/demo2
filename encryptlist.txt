@@ -1,2 +1,2 @@
 # Data
-senarioes/data/sensitiveData.js
+ui/senarioes/data/sensitiveData.js

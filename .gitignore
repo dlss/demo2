@@ -8,6 +8,6 @@ result/
 logs/
 
 # My
-senarioes/specs/work_*.js
-senarioes/data/sensitiveData.js
+ui/senarioes/specs/work_*.js
+ui/senarioes/data/sensitiveData.js
 encryptinfo.txt

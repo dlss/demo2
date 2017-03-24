@@ -29,7 +29,7 @@
 
     var specsConfig = function (fileName) {
         var specName = path.parse(fileName).name;
-        return require('./../data/' + specName).configs;
+        return require('./../senarioes/data/' + specName).configs;
     };
 
     module.exports = {

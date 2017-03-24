@@ -1,0 +1,39 @@
+{
+  "name": "UIAutoTool",
+  "description": "Automatically run browser to do something",
+  "scripts": {
+    "initDr": "webdriver-manager update && webdriver-manager update --ie && webdriver-manager update --ie32",
+    "initPr": "npm install -g protractor && webdriver-manager update && webdriver-manager update --ie && webdriver-manager update --ie32",
+    "initGu": "npm install -g gulp&&npm install -g gulp-cli",
+    "ge": "npm link sune2e",
+
+    "startDr": "start webdriver-manager start",
+    "runPr": "protractor protractor.config.js"
+  },
+  "dependencies": {
+    "request": "^2.80.0",
+    "util": "^0.10.3",
+    "shelljs": "^0.7.6",
+    "gulp-jshint": "^2.0.4",
+    "jshint": "^2.9.4",
+    "gulp-clean": "^0.3.2",
+    "fs-extra": "^2.0.0",
+
+    "portfinder": "^1.0.7",
+    "sync-request": "^3.0.1",
+    "protractor": "^4.0.4",
+
+    "dateformat": "^1.0.12",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^1.2.1",
+    "gulp-util": "^3.0.7",
+    "https": "^1.0.0",
+    "jshashes": "^1.0.5",
+    "lodash": "^4.5.1",
+    "mkdirp": "^0.5.1",
+    "q": "^1.4.1",
+    "yargs": "^4.2.0",
+    "cheerio": "^0.22.0"
+
+  }
+}

@@ -2,6 +2,8 @@
     'use strict';
 
     exports.configs = {
+        logFolder: "",
+        logFileName:"",
         test1: {
             url: "http://www.baidu.com",
             keyTextXpath: "//input[@id='kw']",

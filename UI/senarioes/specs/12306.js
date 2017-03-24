@@ -2,7 +2,7 @@
     'use strict'
 
     var util = require('util');
-    var requires = require('./../requireModule');
+    var requires = require('./../../requireModule');
     var config = requires.common.specsConfig(__filename);
     var senData = requires.sensitiveData.configs;
 

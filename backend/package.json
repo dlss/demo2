@@ -1,27 +1,19 @@
 {
-  "name": "AutoTool",
+  "name": "BackendAutoTool",
   "description": "Automatically to do something useful",
+  "bin": "main.js",
   "scripts": {
-    "opse2e": "opse2e"
+    "start": "node main.js"
   },
   "dependencies": {
     "request": "^2.80.0",
     "util": "^0.10.3",
     "shelljs": "^0.7.6",
-    "gulp-jshint": "^2.0.4",
-    "jshint": "^2.9.4",
-    "gulp-clean": "^0.3.2",
     "fs-extra": "^2.0.0",
-
+    "sync-request": "^3.0.1",
     "dateformat": "^1.0.12",
-    "gulp": "^3.9.1",
-    "gulp-cli": "^1.2.1",
-    "gulp-util": "^3.0.7",
     "https": "^1.0.0",
-    "jshashes": "^1.0.5",
-    "lodash": "^4.5.1",
     "mkdirp": "^0.5.1",
-    "q": "^1.4.1",
     "yargs": "^4.2.0",
     "cheerio": "^0.22.0"
   }

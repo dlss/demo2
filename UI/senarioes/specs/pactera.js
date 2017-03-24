@@ -2,7 +2,7 @@
     'use strict'
 
     var util = require('util');
-    var requires = require('./../requireModule');
+    var requires = require('./../../requireModule');
     var config = requires.common.specsConfig(__filename);
     var senData = requires.sensitiveData.configs;
 
@@ -42,9 +42,9 @@
 
             requires.logger.logS("#6. Submit and verify result");
             var submitEle = element(by.xpath(config.modifyPwd.submitXpath));
-            requires.domHelper.safeClick(submitEle);
+            //.domHelper.safeClick(submitEle);
             
-            //browser.sleep(1000 * 5);
+            browser.sleep(1000 * 5);
         });
     });
 })();

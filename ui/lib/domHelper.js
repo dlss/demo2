@@ -7,6 +7,7 @@
     var request = require('request');
     var fs = require('fs');
     var reportUtil = require('./html-screenshot-reporter/util');
+    var protractor = require('protractor');
 
     //most synchronized API calls will timeout in 30 seconds
     var defaultTimeout = 10 * 1000;
