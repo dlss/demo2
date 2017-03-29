@@ -1,14 +1,14 @@
  var common = require('./lib/common'),
 cons = require('./lib/const'),
 strExt = require('./lib/extString'),
-fileExt = require('./lib/extFile'),
+fileHelper = require('./lib/fileHelper'),
 logger = require('./lib/logger');
 
 module.exports = {
     common: common,
     cons:cons,
     strExt: strExt,
-    fileExt: fileExt,
+    fileHelper: fileHelper,
     logger:logger
 };
 

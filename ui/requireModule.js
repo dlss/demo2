@@ -5,7 +5,7 @@ domHelper = require('./lib/domHelper'),
 assert = require('./lib/assert'),
 cons = require('./lib/const'),
 strExt = require('./lib/extString'),
-fileExt = require('./lib/extFile'),
+fileHelper = require('./lib/fileHelper'),
 logger = require('./lib/logger'),
 sensitiveData = require('./senarioes/data/sensitiveData');
 
@@ -17,7 +17,7 @@ module.exports = {
     assert: assert,
     cons:cons,
     strExt: strExt,
-    fileExt: fileExt,
+    fileHelper: fileHelper,
     logger:logger,
     // Data
     sensitiveData: sensitiveData,

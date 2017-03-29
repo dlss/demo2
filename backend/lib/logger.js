@@ -4,9 +4,11 @@
     'use strict';
 
     var path = require('path');
-    var fileExt = require('./extFile');
+    var util = require('util');
+    var fileHelper = require('./fileHelper');
     var cons = require('./const');
 
+    //var FLOW = protractor.promise.controlFlow();
     var rootFolder = "logs";
     var defaultLogFileExt = ".log";
     var undefined = "undefined";
@@ -50,6 +52,12 @@
         }
     };
 
+    var inLogS = function (info, useTimePrefix) {
+        //FLOW.execute(function () {
+        //    inLogConsole(info, useTimePrefix);
+        //});
+    };
+
     var inLogFile = function (info, fileName, folder, useTimePrefix, isNewLine) {
         var message = info;
         var logFileName = fileName;
@@ -61,17 +69,17 @@
         if (isNewLine === true) {
             message += cons.symbol.newLine;
         }
-        
+
         if (fileName == null) {
             logFileName = getDefaultLogFileName();
         }
         if (logFolder == null) {
             logFolder = getDefaultLogFolder();
         }
-        
+
         var fullPath = path.join(logFolder, logFileName);
 
-        fileExt.appendFile(fullPath, message);
+        fileHelper.appendFileSync(fullPath, message);
 
     };
     //---------------------------------------upper is internal------------------------------------------------
@@ -79,16 +87,35 @@
         inLogFile(info, fileName, folder, useTimePrefix, isNewLine);
     };
 
-    var LogConsole = function (info, useTimePrefix) {
+    var logConsole = function (info, useTimePrefix) {
         inLogConsole(info, useTimePrefix);
     };
 
+    var logS = function (info, useTimePrefix) {
+        inLogS(info, useTimePrefix);
+    };
+    //---------------------------------------upper is common------------------------------------------------
+    var demoLog = function (info, type) {
+        var modelName = "demo";
+        info = util.format("[%s] %s", modelName, info);
+        var logfile = modelName + ".log";
+
+        if (type == 1) {
+            logFile(info, logfile, null, true, true);
+        } else if (type === 2) {
+            logConsole(info, true);
+        } else {
+            logFile(info, logfile, null, true, true);
+            logConsole(info, true);
+        }
+    }
+
     module.exports = {
         logFile: logFile,
-        LogConsole: LogConsole,
+        logConsole: logConsole,
+        //logS: logS,
+        // special log funs
+        demoLog: demoLog
     };
 
 })();
-
-
-

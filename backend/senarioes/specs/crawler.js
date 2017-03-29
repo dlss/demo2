@@ -113,6 +113,6 @@
     };
 
     module.exports = {
-        runCase1: runCase1
+        runCase_Demo: runCase_Demo
     };
 })();

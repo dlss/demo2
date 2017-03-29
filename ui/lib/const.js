@@ -3,19 +3,13 @@
 (function () {
     'use strict';
 
-    var path = {
+    exports.path = {
         workingDirectory:"",
         testResultDirectory: "result/e2e/screenshots",
-
     };
 
-    var symbol = {
+    exports.symbol = {
         newLine: "\r\n",
-    };
-
-    module.exports = {
-        path: path,
-        symbol: symbol,
     };
 
 })();
