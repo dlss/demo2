@@ -4,12 +4,14 @@
 
     var util = require('util');
     var requires = require('./../../requireModule');
+    var nodelib = requires.nodelib;
     var config = requires.config.crawler;
 
     var cheerio = require("cheerio"); //html parser
     var http = require("http");
     var fs = require("fs");
 
+    var moduleName = "crawler";
     var downLoadUrlList = [];
     var maxPage = 1;
     var pageIndex = 0;
@@ -35,8 +37,7 @@
 
                 if (pageIndex == maxPage) {
                     message = util.format("===========================Download count:%s", downLoadUrlList.length);
-                    console.log(message);
-                    requires.logger.logFile(message, null, null, false, true);
+                    nodelib.logger.log(message, 3, moduleName);
 
                     if (downLoadUrlList.length > 0) {
                         downloadFun(downLoadUrlList.shift());
@@ -52,9 +53,7 @@
 
         var reqUrl = url.replace("/small/", "/big/");
 
-        message = "Download:" + reqUrl;
-        console.log(message);
-        requires.logger.logFile(message, null, null, false, true);
+        nodelib.logger.log("Download:" + reqUrl, 3, moduleName);
 
         var req = http.get(reqUrl, function (res) {
             res.setEncoding(config.test.encoding2);
@@ -66,18 +65,16 @@
                 var savePath = config.test.outForder + narr[0] + narr[1] + narr[2] + "_" + narr[4];
                 fs.writeFile(savePath, data, config.test.encoding2, function (err) {
                     if (err) {
-                        console.log(err);
+                        nodelib.logger.log(err, 3, moduleName);
                     } else {
 
-                        message = "Save as:" + savePath;
-                        console.log(message);
-                        requires.logger.logFile(message, null, null, false, true);
+                        nodelib.logger.log("Save as:" + savePath, 3, moduleName);
+
                         if (downLoadUrlList.length > 0) {
                             downloadImg(downLoadUrlList.shift());
                         } else {
                             message = "===========================Download Complete";
-                            console.log(message);
-                            requires.logger.logFile(message, null, null, false, true);
+                            nodelib.logger.log(message, 3, moduleName);
                         }
                     }
                 });

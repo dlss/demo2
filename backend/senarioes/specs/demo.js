@@ -5,10 +5,11 @@
     var util = require('util');
     var requires = require('./../../requireModule');
     var nodelib = requires.nodelib;
+    var moduleName = "demo";
 
     var runCase_Demo = function () {
         var files = nodelib.fileHelper.getAllFiles(process.cwd(), function (file) {
-            nodelib.logger.demoLog(file, 1);
+            nodelib.logger.log(file, 1, moduleName);
         });
     };
 
