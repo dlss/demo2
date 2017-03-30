@@ -9,5 +9,5 @@ logs/
 
 # My
 ui/senarioes/specs/work_*.js
-ui/senarioes/data/sensitiveData.js
+ui/senarioes/sensitiveConfig.js
 encryptinfo.txt

@@ -1,14 +1,10 @@
- var common = require('./lib/common'),
-cons = require('./lib/const'),
-strExt = require('./lib/extString'),
-fileHelper = require('./lib/fileHelper'),
-logger = require('./lib/logger');
+var config = require('./senarioes/config');
+nodelib = require('nodelib');
+//sensitiveConfig = require('./senarioes/sensitiveConfig');
 
 module.exports = {
-    common: common,
-    cons:cons,
-    strExt: strExt,
-    fileHelper: fileHelper,
-    logger:logger
+    nodelib: nodelib,
+    config: config,
+    //sensitiveConfig: sensitiveConfig,
 };
 

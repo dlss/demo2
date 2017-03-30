@@ -3,8 +3,9 @@
 
     var util = require('util');
     var requires = require('./../../requireModule');
-    var config = requires.common.specsConfig(__filename);
-    var senData = requires.sensitiveData.configs;
+    var nodelib = requires.nodelib;
+    var senConfig = requires.sensitiveConfig.demo;
+    var config = requires.config.demo;
 
     describe('Demo', function () {
         afterAll(function (done) {
@@ -22,18 +23,18 @@
 
         it('Demo - Search question in baidu', function () {
 
-            requires.logger.logS(util.format("#1. Open '%s'", config.test1.url));
+            nodelib.logger.logC(util.format("#1. Open '%s'", config.test1.url));
             browser.get(config.test1.url);
 
-            requires.logger.logS(util.format("#2. Input '%s'", senData.demo.searchKey));
+            nodelib.logger.logC(util.format("#2. Input '%s'", senConfig.searchKey));
             var keyTextEle = element(by.xpath(config.test1.keyTextXpath));
-            requires.domHelper.safeInputWithNoAngular(keyTextEle, senData.demo.searchKey)
+            requires.domHelper.safeInputWithNoAngular(keyTextEle, senConfig.searchKey)
 
-            requires.logger.logS("#3. Click search button");
+            nodelib.logger.logC("#3. Click search button");
             var searchButtonEle = element(by.xpath(config.test1.searchButtonXpath));
             requires.domHelper.safeClick(searchButtonEle);
 
-            requires.logger.logS("#3. Click the first row");
+            nodelib.logger.logC("#3. Click the first row");
             var firstSearchResultLinkEle = element(by.xpath(config.test1.firstSearchResultLinkXpath));
             requires.domHelper.safeClick(firstSearchResultLinkEle);
 

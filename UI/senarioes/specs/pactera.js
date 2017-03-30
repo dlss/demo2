@@ -3,8 +3,9 @@
 
     var util = require('util');
     var requires = require('./../../requireModule');
-    var config = requires.common.specsConfig(__filename);
-    var senData = requires.sensitiveData.configs;
+    var nodelib = requires.nodelib;
+    var senConfig = requires.sensitiveConfig.pactera;
+    var config = requires.config.pactera;
 
     describe('Pactera Auto', function () {
         afterAll(function (done) {
@@ -21,26 +22,26 @@
 
 
         it('Pactera Auto - Modify Password', function () {
-            requires.logger.logS(util.format("#1. Open '%s'", senData.pactera.modifyPwdUrl));
-            browser.get(senData.pactera.modifyPwdUrl);
+            nodelib.logger.logC(util.format("#1. Open '%s'", senConfig.modifyPwdUrl));
+            browser.get(senConfig.modifyPwdUrl);
 
-            requires.logger.logS("#2. Input 'User ID'");
+            nodelib.logger.logC("#2. Input 'User ID'");
             var userIdTextEle = element(by.xpath(config.modifyPwd.userIdTextXpath));
-            requires.domHelper.safeInputWithNoAngular(userIdTextEle, senData.pactera.userId)
+            requires.domHelper.safeInputWithNoAngular(userIdTextEle, senConfig.userId)
 
-            requires.logger.logS("#3. Input 'Original password'");
+            nodelib.logger.logC("#3. Input 'Original password'");
             var userPwdTextEle = element(by.xpath(config.modifyPwd.userPwdTextXpath));
-            requires.domHelper.safeInputWithNoAngular(userPwdTextEle, senData.pactera.userPwd)
+            requires.domHelper.safeInputWithNoAngular(userPwdTextEle, senConfig.userPwd)
 
-            requires.logger.logS("#4. Input 'New password'");
+            nodelib.logger.logC("#4. Input 'New password'");
             var userNewPwdTextEle = element(by.xpath(config.modifyPwd.userNewPwdTextXpath));
-            requires.domHelper.safeInputWithNoAngular(userNewPwdTextEle, senData.pactera.newPwd)
+            requires.domHelper.safeInputWithNoAngular(userNewPwdTextEle, senConfig.newPwd)
 
-            requires.logger.logS("#5. Input 'Confirm new password'");
+            nodelib.logger.logC("#5. Input 'Confirm new password'");
             var userConNewTextEle = element(by.xpath(config.modifyPwd.userConNewTextXpath));
-            requires.domHelper.safeInputWithNoAngular(userConNewTextEle, senData.pactera.conNewPwd)
+            requires.domHelper.safeInputWithNoAngular(userConNewTextEle, senConfig.conNewPwd)
 
-            requires.logger.logS("#6. Submit and verify result");
+            nodelib.logger.logC("#6. Submit and verify result");
             var submitEle = element(by.xpath(config.modifyPwd.submitXpath));
             //.domHelper.safeClick(submitEle);
             

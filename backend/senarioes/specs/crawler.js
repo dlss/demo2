@@ -4,7 +4,7 @@
 
     var util = require('util');
     var requires = require('./../../requireModule');
-    var config = requires.common.specsConfig(__filename);
+    var config = requires.config.crawler;
 
     var cheerio = require("cheerio"); //html parser
     var http = require("http");

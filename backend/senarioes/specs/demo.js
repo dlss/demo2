@@ -4,11 +4,11 @@
 
     var util = require('util');
     var requires = require('./../../requireModule');
-    //var config = requires.common.specsConfig(__filename);
+    var nodelib = requires.nodelib;
 
     var runCase_Demo = function () {
-        var files = requires.fileHelper.getAllFiles(process.cwd(), function (file) {
-            requires.logger.demoLog(file, 1);
+        var files = nodelib.fileHelper.getAllFiles(process.cwd(), function (file) {
+            nodelib.logger.demoLog(file, 1);
         });
     };
 

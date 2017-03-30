@@ -3,8 +3,7 @@
 
     var util = require('util');
     var requires = require('./../../requireModule');
-    var config = requires.common.specsConfig(__filename);
-    var senData = requires.sensitiveData.configs;
+    var senConfig = requires.sensitiveConfig.configs;
 
     describe('12306', function () {
         afterAll(function (done) {
